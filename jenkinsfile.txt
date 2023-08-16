@@ -1,0 +1,18 @@
+#first Jenkins pipeline
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from your repository if using SCM
+                git url: 'https://github.com/your-username/your-repo.git', credentialsId: 'your-credentials-id'
+            }
+        }
+        stage('Build and Run') {
+            steps {
+                sh 'cd /path/to/your/script/directory && python3 game.py'
+            }
+        }
+    }
+}
+
